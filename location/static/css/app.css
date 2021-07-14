@@ -1,0 +1,11 @@
+.pt-font-header {
+  font-family: 'Oswald', sans-serif;
+}
+.pt-font-body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.pt-body {
+  margin: 0;
+  padding: 0;
+}
