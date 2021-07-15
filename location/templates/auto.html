@@ -12,14 +12,14 @@
  <div class="container-md">
    
  <div class="btn-group btn-striped" role="group" aria-label="Basic example">
-  <button type="button" class="btn btn-success">Agregar</button>
-  <button type="button" class="btn btn-secondary">Editar</button>
-  <button type="button" class="btn btn-danger">Eliminar</button>
+  <button type="button" class="btn btn-success pt-btn-add">Agregar Clientes</button>
+  <button type="button" class="btn btn-secondary pt-btn-edit">Editar</button>
+  <button type="button" class="btn btn-danger pt-btn-delete">Eliminar Clientes</button>
   </div>
   <br /> <br />
 
  <!-- Form for adding clients data -->
- <form class="row g-3">
+ <form class="row g-3 pt-form-adding-client">
    <h1 class="h1 pt-font-header">Agregar Clientes</h1>
    <div class="col-12">
     <label for="inputAddress" class="form-label">Nombre Completo</label>
@@ -48,13 +48,13 @@
   </div>
  
   <div class="col-12">
-    <button type="submit" class="btn btn-primary">Enviar</button>
+    <button type="submit" class="btn btn-primary pt-submit-adding-client">Enviar</button>
   </div>
   </form>
   <br />
   
  <!-- Form for updating clients data -->
- <form class="row g-3">
+ <form class="row g-3 pt-form-updating-client">
    <h1 class="h1 pt-font-header">Editar Clientes</h1>
    <div class="col-12">
     <label for="inputAddress" class="form-label">Nombre Completo</label>
@@ -83,14 +83,14 @@
   </div>
  
   <div class="col-12">
-    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button type="submit" class="btn btn-primary pt-submit-updating-client">Guardar</button>
   </div>
   </form>
   <br />
   
  <!-- Table of clients -->
  <h1 class="h1 pt-font-header">Nuestros clientes</h1>
- <div class="table-responsive-sm">
+ <div class="table-responsive-sm pt-table-client">
  <table class="table table-striped table-primary">
   <tr>
    <th>ID</th>
@@ -112,7 +112,7 @@
    <td>Días</td>
    <td>Precio</td>
    <td>Alquilado</td>
-   <td class="table table-secondary">Editar</td>
+   <td class="table table-secondary pt-edit-client">Editar</td>
    <td class="table table-danger">Eliminar</td>
   </tr>
  </table>
@@ -120,7 +120,7 @@
  <br />
  
   <!-- Form of adding auto data -->
-  <form class="row g-3">
+  <form class="row g-3 pt-form-adding-auto">
   <h1 class="h1 pt-font-header">Auto</h1>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">Nombre</label>
@@ -141,7 +141,7 @@
   </form>
   <br />
   <!-- Form of updating autos data -->
-  <form class="row g-3">
+  <form class="row g-3 pt-form-updating-auto">
   <h1 class="h1 pt-font-header">Editar Auto</h1>
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label">Nombre</label>
@@ -164,7 +164,7 @@
  
  <!-- Table of Auto -->
   
- <h1 class="h1 pt-font-header">Nuestros autos</h1>
+ <h1 class="h1 pt-font-header pt-table-auto">Nuestros autos</h1>
  <div class="table-responsive-sm">
  <table class="table table-striped table-primary">
   <tr>
