@@ -31,6 +31,9 @@ def create_app():
     from . import auto
     app.register_blueprint(auto.auto_bp)
     
+    from . import client
+    app.register_blueprint(client.client_bp)
+    
     from . import index
     app.register_blueprint(index.index_bp)
 
