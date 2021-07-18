@@ -16,11 +16,12 @@ def client():
     return render_template("client.html")
     
 
-@client_bp.route("/agregar", methods=["POST", "GET"])
-def add():
+@client_bp.route("/agregar_clientes", methods=["POST", "GET"])
+def add_clients():
     if request.method == "POST":
       
         error = None
+        message = None
         
         name = request.form["name"]
         passport = request.form["passport"]
@@ -40,24 +41,28 @@ def add():
             error = "Espacio es requerido."
         elif not price:
             error = "Espacio es requerido."
-        if error not None:
+        
+        if error is not None:
             flash(error)
         else:
-            clients = Clients(name=name,
+            clients = Clients(
+                      id=None,
+                      name=name,
                       passport=passport,
                       cedula=cedula,
                       telephone=telephone,
                       hours=hours,
                       days=days,
-                      price=price
+                      price=price,
+                      rent=None
                       )
             db.session.add(clients)
-            db.sessio.commit()
+            db.session.commit()
             
             message = "¡Datos agregados satisfactoriamente!"
             
             flash(message)
-            return redirect(url_for("client"))
+            return redirect(url_for("client.client"))
     return render_template("client.html")
     
 @client_bp.route("/editar")

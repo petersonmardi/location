@@ -13,12 +13,12 @@ $(".pt-btn-add").on("dblclick",
    function() {
      $(".pt-form-adding-client").hide(400);
    });
-
+/**
 $(".pt-submit-adding-client").on("click",
    function() {
      $(".pt-form-adding-client").hide(400);
    });
-
+   **/
 $(".pt-form-updating-client").hide();
 
 $(".pt-edit-client").on("click",
@@ -31,7 +31,7 @@ $(".pt-edit-client").on("click",
      $(".pt-form-updating-client").hide(400);
    });
 
-$(".pt-submit-updating-client").on("click",
+ $(".pt-submit-updating-client").on("click",
    function() {
      $(".pt-form-updating-client").hide(400);
    });

@@ -4,11 +4,11 @@ from datetime import datetime as dt
 class Clients(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
-    cedula = db.Column(db.String(20), nullable=True)
+    cedula = db.Column(db.String(13), nullable=True)
     passport = db.Column(db.String(9), nullable=True)
     telephone = db.Column(db.Integer, nullable=False)
-    hours = db.Column(db.String(10), nullable=False)
-    days = db.Column(db.Integer, nullable=False)
+    hours = db.Column(db.String(10), nullable=True)
+    days = db.Column(db.Integer, nullable=True)
     price = db.Column(db.Integer, nullable=False)
     rent = db.Column(db.DateTime, nullable=False, default=dt.now)
 
