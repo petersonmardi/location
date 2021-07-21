@@ -1,95 +1,60 @@
-{% extends 'base.html' %}
+{% extends 'main.html' %}
 
-{% block head %}
- {{ super() }}
-{% endblock %}
+{% block head %} {{ super() }} {% endblock %}
 
-{% block title%}AUTO{% endblock %}
+{% block title %}Client{% endblock %}
 
 {% block content %}
-  {% include 'header.html' %}
-
- <div class="container-md">
-   
- <div class="btn-group btn-striped" role="group" aria-label="Basic example">
-  <button type="button" class="btn btn-success pt-btn-add">Agregar Autos</button>
-<!--  <button type="button" class="btn btn-secondary pt-btn-edit">Editar</button>
-  <button type="button" class="btn btn-danger pt-btn-delete">Eliminar Clientes</button -->
-  </div>
-  <br /> <br />
- 
-  <!-- Form of adding auto data -->
-  <form class="row g-3 pt-form-adding-auto">
-    
-  <h1 class="h1 pt-font-header">Auto</h1>
-  
-  <div class="col-md-6">
-    <label for="name" class="form-label">Nombre</label>
-    <input type="text" for="name" class="form-control" placeholder="Toyota" required>
-  </div>
-  <div class="col-md-6">
-    <label for="model" class="form-label">Modelo</label>
-    <input type="text" for="model" class="form-control" placeholder="(809) 123-4567">
-  </div>
-  <div class="col-12">
-    <label for="year" class="form-label">Año</label>
-    <input type="text" for="year" class="form-control"  placeholder="2021">
-  </div>
- 
-  <div class="col-12">
-    <button type="submit" class="btn btn-primary pt-submit-adding-auto">Enviar</button>
-  </div>
-  </form>
+<br />
+<div>
+  <a href="{{ url_for('client.client') }}">< Volver a clientes</a>
+</div>
+<br />
+<div>
+  <button class="pt-bg-info pt-add-client">Agregar Auto</button>
+</div>
   <br />
-  
-  <!-- Form of updating autos data -->
-  <form class="row g-3 pt-form-updating-auto">
-    
-  <h1 class="h1 pt-font-header">Editar Auto</h1>
-  
-  <div class="col-md-6">
-    <label for="name" class="form-label">Nombre</label>
-    <input type="text" for="name" class="form-control" placeholder="Toyota" required>
-  </div>
-  <div class="col-md-6">
-    <label for="model" class="form-label">Modelo</label>
-    <input type="text" for="model" class="form-control" placeholder="ABC-12">
-  </div>
-  <div class="col-12">
-    <label for="year" class="form-label">Año</label>
-    <input type="text" for="year" class="form-control"  placeholder="2021">
-  </div>
- 
-  <div class="col-12">
-    <button type="submit" class="btn btn-primary pt-submit-updating-auto">Guardar</button>
-  </div>
-  </form>
-  <br />
- 
- <!-- Table of Auto -->
-  
- <h1 class="h1 pt-font-header pt-table-auto">Nuestros autos</h1>
- 
- <div class="table-responsive-sm">
- <table class="table table-striped table-primary">
-  <tr>
-   <th>ID</th>
-   <th>Nombre</th>
-   <th>Modelo</th>
-   <th>Año</th>
-  </tr>
+ <div>
+  <p class="pt-customize-color">Mostrar <a href="{{ url_for('auto.show_auto') }}">autos</a>  | <a href="#">Disponibles</a> | <a href="#">Alquilados</a></p>
+</div>
 
-  <tr class="table-light">
-   <td>Id</td>
-   <td>Nombre</td>
-   <td>Modelo</td>
-   <td>Año</td>
-   <td class="table-secondary pt-edit-auto">Editar</td>
-   <td class="table-danger">Eliminar</td>
-  </tr>
- </table>
- </div>
- <br />
- 
- </div>
+<!-- Form Auto -->
+<div class="pt-form-client">
+  <form class="pt-form pt-customize-color" action="{{ url_for('auto.add_auto') }}" method="post" accept-charset="utf-8">
+    <div class="col">
+      <label for="NombreCompleto">Nombre Completo</label>
+      <input type="text" name="nombre" id="nombre" required/>
+    </div>
+<div>
+  {% for message in get_flashed_messages() %}
+  <p class="pt-message">{{ message }}</p>
+  {% endfor %}
+</div>
+    <div class="col">
+      <label for="Modelo">Modelo</label>
+      <input type="text" name="modelo" id="modelo" />
+    </div>
+    <div class="col">
+      <label for="Año">Año</label>
+      <input type="text" name="año" id="año" />
+    </div>
+    <div class="col">
+      <label for="País">País</label>
+      <input type="text" name="país" id="país" />
+    </div>
+<div>
+  {% for message in get_flashed_messages() %}
+  <p class="pt-message">{{ message }}</p>
+  {% endfor %}
+</div>
+    <div class="col">
+      <button class="pt-submit-client pt-customize-bg-color" type="submit">Enviar</button>
+    </div>
+  </form>
+  </div>
+<div>
+  {% for message in get_flashed_messages() %}
+  <p class="pt-message">{{ message }}</p>
+  {% endfor %}
+</div>
 {% endblock %}

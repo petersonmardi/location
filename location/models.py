@@ -1,35 +1,36 @@
 from . import db
 from datetime import datetime as dt
 
-class Clients(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(255), nullable=False)
-    cedula = db.Column(db.String(13), nullable=True)
-    passport = db.Column(db.String(9), nullable=True)
-    telephone = db.Column(db.Integer, nullable=False)
-    hours = db.Column(db.String(10), nullable=True)
-    days = db.Column(db.Integer, nullable=True)
-    price = db.Column(db.Integer, nullable=False)
-    rent = db.Column(db.DateTime, nullable=False, default=dt.now)
+class Client(db.Model):
+    id_ = db.Column(db.Integer, primary_key=True)
+    
+    nombre = db.Column(db.String(255), nullable=False)
+    cedula = db.Column(db.String(20), nullable=True)
+    pasaporte = db.Column(db.String(9), nullable=True)
+    telefono = db.Column(db.Integer, nullable=False)
+    
+    fecha = db.Column(db.DateTime, nullable=False, default=dt.now)
 
     def __repr__(self):
         return f"{self.name} is the author."
 
 
-class Autos(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20), nullable=False)
-    _model = db.Column(db.String(20), nullable=False)
-    year = db.Column(db.Integer, nullable=False)
+class Auto(db.Model):
+    id_ = db.Column(db.Integer, primary_key=True)
+    nombre = db.Column(db.String(20), nullable=False)
+    modelo = db.Column(db.String(20), nullable=False)
+    ano = db.Column(db.Integer, nullable=False)
+    pais = db.Column(db.String(20), nullable=False)
+    fecha = db.Column(db.DateTime, nullable=False, default=dt.now)
 
     def __repr__(self):
         return f"{self.name} is the author."
 
-class Users(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(255), nullable=False)
-    password = db.Column(db.Text, nullable=False)
+class ClientAuto(db.Model):
+    id_ = db.Column(db.Integer, primary_key=True)
+    auto_id = db.Column(db.Integer, db.ForeignKey('auto.id_'), nullable=False)
+    client_id = db.Column(db.Integer, db.ForeignKey('client.id_'), nullable=False)
 
     def __repr__(self):
-        return f"{self.name} is the author."
+        return f"<Auto_id>: {self.auto_id}."
 

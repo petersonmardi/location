@@ -1,0 +1,42 @@
+{% extends 'main.html' %}
+
+{% block head %} {{ super() }} {% endblock %}
+
+{% block title %}Client{% endblock %}
+
+{% block content %}
+<br />
+<div>
+  <a href="{{ url_for('auto.auto') }}"><strong>< Volver</strong>...</a>
+  <br /> <br />
+  <p class="pt-customize-color"><a href="#">Disponibles</a> | <a href="#">Alquilados</a></p>
+</div>
+<div>
+  <h1 class="pt-customize-color">Datos de los autos</h1> <hr /> <br />
+</div>
+  <!-- Table Client -->
+<div class="pt-table">
+  <table border="0">
+    <tr class="pt-customize-color">
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Modelo</th>
+      <th>Año</th>
+      <th>País</th>
+      <th>Fecha</th>
+    </tr>
+    {% for auto in autos_ %}
+    <tr class="pt-customize-color bg-fcfcfd">
+      <td>{{ auto.id_ }}</td>
+      <td>{{ auto.nombre }}</td>
+      <td>{{ auto.modelo }}</td>
+      <td>{{ auto.ano }}</td>
+      <td>{{ auto.pais }}</td>
+      <td>{{ auto.fecha }}</td>
+      <td class="pt-edit pt-text-success">Editar</td>
+      <td class="pt-text-danger pt-delete">Eliminar</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

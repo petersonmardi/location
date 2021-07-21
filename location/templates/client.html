@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+
+{% block head %} {{ super() }} {% endblock %}
+
+{% block title %}Client{% endblock %}
+
+{% block content %}
+
+<br />
+<div>
+  <button class="pt-bg-info pt-add-client">Agregar Cliente</button>
+</div>
+  <br />
+ <div>
+  <p class="pt-customize-color">Mostrar <a href="{{ url_for('client.show') }}">clientes</a>  | <a href="#">Alquiler</a> | Ir a <a href="{{ url_for('auto.auto') }}">Auto</a></p>
+  <hr /> <br />
+</div>
+
+<!-- Form Client -->
+<div class="pt-form-client">
+  <form class="pt-form pt-customize-color" action="{{ url_for('client.add') }}" method="post" accept-charset="utf-8">
+    <div class="col">
+      <label for="NombreCompleto">Nombre Completo</label>
+      <input type="text" name="nombre" id="nombre" />
+    </div>
+    <p class="pt-text-ffbd4a">Cédula or Pasaporte</p>
+    <div class="col">
+      <label for="Cédula">Cédula</label>
+      <input type="text" name="cédula" id="cédula" value="" />
+    </div>
+    <div class="col">
+      <label for="Pasaporte">Pasaporte</label>
+      <input type="text" name="pasaporte" id="pasaporte" />
+    </div>
+    <div class="col">
+      <label for="Teléfono">Teléfono</label>
+      <input type="text" name="teléfono" id="teléfono" />
+    </div>
+    <div class="col">
+      <button class="pt-submit-client pt-customize-bg-color" type="submit">Enviar</button>
+    </div>
+  </form>
+  </div>
+{% endblock %}

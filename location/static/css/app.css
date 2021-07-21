@@ -1,11 +1,74 @@
-.pt-font-header {
-  font-family: 'Oswald', sans-serif;
+.pt-text-primary {
+  color: blue;
 }
-.pt-font-body {
-  font-family: 'Noto Sans', sans-serif;
+.pt-bg-primary {
+  background-color: blue;
+  border: none;
 }
 
-.pt-body {
-  margin: 0;
-  padding: 0;
+.pt-text-secondary {
+  color: gray;
+}
+.pt-text-white{
+  color: white;
+}
+.pt-border-white {
+  border: solid 1px white;
+}
+.pt-bg-info {
+  background-color: #d98b00;
+  border: none;
+}
+.pt-bg-secondary {
+  background-color: gray;
+  border: none;
+}
+
+.pt-text-success {
+  color: green;
+}
+.pt-bg-success {
+  background-color: green;
+  border: none;
+}
+
+.pt-text-danger {
+  color: red;
+}
+.pt-bg-danger {
+  background-color: red;
+  border: none;
+}
+
+.pt-customize-color {
+  color: #65649e;
+}
+.bg-fcfcfd {
+  background-color: #fcfcfd;
+  border: none;
+}
+.pt-customize-bg-color {
+  background-color: #ffbd4a;
+  border: none;
+}
+
+.pt-table {
+  max-width: 100%;
+  overflow: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.div-30 {
+  float: left;
+}
+
+.pt-header {
+  height: 150px;
+  width: 150px;
+  background-color: #333;
+}
+
+.pt-text-ffbd4a {
+  color: #ffbd4a;
 }

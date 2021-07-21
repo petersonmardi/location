@@ -1,0 +1,62 @@
+{% extends 'main.html' %}
+
+{% block head %} {{ super() }} {% endblock %}
+
+{% block title %}Client{% endblock %}
+
+{% block content %}
+<br />
+<div>
+  <a href="{{ url_for('client.client') }}"><strong>< Volver</strong>...</a>
+  <br />
+</div>
+<div>
+  <h1 class="pt-customize-color">Datos de los clientes</h1>
+</div> <hr /> 
+<div class="pt-text-ffbd4a">
+  {% for message in get_flashed_messages() %}
+    {% if message == None %}
+      <p></p>
+    {% else %}
+      <p >{{ message }}</p>
+    {% endif %}
+  {% endfor %}
+</div>
+<br />
+  <!-- Table Client -->
+<div class="pt-table">
+  <table border="0">
+    <tr class="pt-customize-color">
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Cédula</th>
+      <th>Pasaporte</th>
+      <th>Teléfono</th>
+      <th>Fecha</th>
+    </tr>
+    {% for client in clients_ %}
+    <tr class="pt-customize-color bg-fcfcfd">
+      <td>{{ client.id_ }}</td>
+      <td>{{ client.nombre }}</td>
+      
+      {% if client.cedula == None %}
+      <td>Vacío</td>
+      {% else %}
+      <td>{{ client.cedula }}</td>
+      {% endif %}
+      
+      {% if client.pasaporte == None %}
+      <td>None</td>
+      {% else %}
+      <td>{{ client.pasaporte }}</td>
+      {% endif %}
+      
+      <td>{{ client.telefono }}</td>
+      <td>{{ client.fecha }}</td>
+      <td class="pt-edit pt-text-success">Editar</td>
+      <td class="pt-text-danger pt-delete">Eliminar</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

@@ -2,73 +2,54 @@ from flask import (
   Blueprint,
   render_template,
   url_for,
-  redirect,
   request,
+  redirect,
   flash
   )
-
-from .models import db, Clients
+from .models import *
 
 client_bp = Blueprint("client", __name__)
 
-@client_bp.route("/client")
+@client_bp.route("/")
 def client():
     return render_template("client.html")
     
-
-@client_bp.route("/agregar_clientes", methods=["POST", "GET"])
-def add_clients():
+@client_bp.route("/add", methods=["POST", "GET"])
+def add():
     if request.method == "POST":
       
         error = None
         message = None
+
+        nombre = request.form["nombre"]
+        cedula = request.form["cédula"]
+        pasaporte = request.form["pasaporte"]
+        telefono = request.form["teléfono"]
         
-        name = request.form["name"]
-        passport = request.form["passport"]
-        cedula = request.form["cedula"]
-        telephone = request.form["telephone"]
-        hours = request.form["hours"]
-        days = request.form["days"]
-        price = request.form["price"]
-        
-        if not name:
-            error = "Espacio es requerido."
-        elif not telephone:
-            error = "Espacio es requerido."
-        elif not hours:
-            error = "Espacio es requerido."
-        elif not days:
-            error = "Espacio es requerido."
-        elif not price:
-            error = "Espacio es requerido."
-        
+        if not nombre:
+            error = "Nombre no puede estar vacío."
+        elif not telefono:
+            error = "Teléfono no puede estar vacío."
         if error is not None:
             flash(error)
         else:
-            clients = Clients(
-                      id=None,
-                      name=name,
-                      passport=passport,
+            clients = Client(
+                      nombre=nombre,
                       cedula=cedula,
-                      telephone=telephone,
-                      hours=hours,
-                      days=days,
-                      price=price,
-                      rent=None
-                      )
+                      pasaporte=pasaporte,
+                      telefono=telefono
+          )
             db.session.add(clients)
             db.session.commit()
-            
+        
             message = "¡Datos agregados satisfactoriamente!"
             
-            flash(message)
-            return redirect(url_for("client.client"))
+        flash(message)
+        
+        return redirect(url_for("client.show"))
     return render_template("client.html")
-    
-@client_bp.route("/editar")
-def edit():
-    return "<h1>Edítame</h1>"
-    
-@client_bp.route("/eliminar")
-def delete():
-    return "<h1>Elimíname</h1>"
+   
+@client_bp.route("/show")
+def show():
+    clients_ = Client.query.all()
+    return render_template("show.html", clients_=clients_)
